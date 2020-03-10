@@ -1,17 +1,22 @@
 <html>
+Keep hitting this page, the correct page will contain "Correct:"
+
+You will need to validate which response has the correct page response
 
 <?php
 
-echo $_GET['name'];
-$x = rand(1, 10);
+include_once 'jwt.php';
+
+
+$x = rand(1, 1000);
 echo $x;
-if ($x==2)
+if ($x==123)
 {
-	echo "Match";
+	jwtToken("anyone", "Validation001.php", "abC123!"); 
 }
 else
 {
-	echo "no match";
+	echo "</br></br>no match";
 }
 
 

@@ -1,8 +1,33 @@
 <html>
 <body>
-
-
+<li>Requires cookies
+<li>Hello world
 <?php
+include_once 'jwt.php';
+if(!isset($_COOKIE["random"])||!isset($_COOKIE["ex"])) 
+{
+   echo "Too Slow <br>";
+} 
+else 
+{
+	if(strcmp( md5(time()."8614880573"),$_COOKIE["ex"])==0)
+	{
+		if(strcmp( md5(($_POST['value']-1)."8614880573"),$_COOKIE["random"])==0)
+		{
+			echo "pass <br>" ;
+			$x = jwtToken("anyone", "programming001.php", "abC123!"); 
+			echo $x;
+		}
+		else{
+			echo "fail";
+		}
+	}
+	else
+	{
+		echo "Too Slow";
+	}
+   
+}
 
 $x = rand(1, 10000);
 echo "Take the random value and add 1: " . $x ."<br>";
@@ -14,30 +39,9 @@ $cookie_name = "ex";
 setcookie($cookie_name, md5(time()."8614880573"), time() + (0), "/"); // 86400 = 1 day
 
 
-echo "<br>Value: " . $_POST['value']."<br>";
+//echo "<br>Value: " . $_POST['value']."<br>";
 
-if(!isset($_COOKIE["random"])) {
-    echo "Cookie not set!";
-	
-} 
-else 
-{
-	if(strcmp( md5(time()."8614880573"),$_COOKIE["ex"])==0)
-	{
-		if(strcmp( md5(($_POST['value']-1)."8614880573"),$_COOKIE["random"])==0)
-		{
-			echo "pass <br>" ;
-		}
-		else{
-			echo "fail";
-		}
-	}
-	else
-	{
-		echo "Too SLow";
-	}
-   
-}
+
 ?>
 <br><br>
 

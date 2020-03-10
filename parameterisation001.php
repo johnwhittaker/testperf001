@@ -1,17 +1,23 @@
 <?php
-echo md5("suzuki" ). "</br>";
-echo md5($_POST['parameter']) . "</br>";
-if (strcmp("101186a9a44bc0354ed997696a6aefba",md5($_POST['parameter']))==0)
-{
-	echo "Match";
-}
-else
-{
-	echo "no match";
-}
+
+include_once 'jwt.php';
 
 
-echo "</br>Guess the word (use rockyou.txt): ";
+if(isset($_POST['parameter']))
+{
+	if (strcmp("101186a9a44bc0354ed997696a6aefba",md5($_POST['parameter']))==0)
+	{
+		
+		jwtToken("anyone", "Parameterisation001.php", "abC123!"); 
+		
+	}
+	else
+	{
+		echo "no match";
+	}
+}
+
+echo "</br>Guess the word ";
 
 ?>
 
@@ -22,6 +28,7 @@ echo "</br>Guess the word (use rockyou.txt): ";
 
 
 <h1>List of words</h1>
+<h2>Copy to CSV file</h2>
 <li>root
 <li>admin
 <li>test
