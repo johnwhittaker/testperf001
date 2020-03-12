@@ -33,4 +33,9 @@ Welcome to the Planit performance challenge
 <td><a href="./headers001.php">Headers</a></td><td><a href=""></a></td>
 </tr>
 
+<tr>
+<td><a href="./regex001.php">Regular Expression</a></td><td><a href=""></a></td>
+</tr>
+
+
 </table>

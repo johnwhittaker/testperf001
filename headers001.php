@@ -1,4 +1,4 @@
-Set a header titled "hello" and with a value of "world"
+Manually set a header titled "hello" and with a value of "world"
 
 <?php
 include_once 'jwt.php';

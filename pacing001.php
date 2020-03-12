@@ -9,17 +9,17 @@ echo "pacing, hit this page once every 5 seconds for 5 minutes</br></br>";
 
 if(!isset($_COOKIE[$cookie_name])||(is_null($_COOKIE[$cookie_name]))||($_COOKIE[$cookie_name]=="null")) {
     echo "Cookie not set!";
-	$body[time()]= time();
-	$body = json_encode($body);
+	$cookie_text[time()]= time();
+	$cookie_text = json_encode($cookie_text);
 }
 
 if(isset($_COOKIE[$cookie_name]) &&($_COOKIE[$cookie_name]!="null")) 
 {
 
-	$body = json_decode($_COOKIE[$cookie_name], true);
+	$cookie_text = json_decode($_COOKIE[$cookie_name], true);
 	$t = time();
 
-	foreach($body as $x => $x_value) 
+	foreach($cookie_text as $x => $x_value) 
 	{
 		
 		$diff[] = (time()-($x_value + 0));
@@ -56,13 +56,13 @@ if(isset($_COOKIE[$cookie_name]) &&($_COOKIE[$cookie_name]!="null"))
 		$counter++;
 		
 	}
-	if ($pass && $counter ==10)
+	if ($pass && $counter >=60)
 	{
 		$x = jwtToken("anyone", "pacing001.php", "abC123!"); 
 	}
 
-	$body[time()] = time();
-	$body = json_encode($body);
+	$cookie_text[time()] = time();
+	$cookie_text = json_encode($cookie_text);
 }
-setcookie($cookie_name, $body, time() + (60), "/"); // 86400 = 1 day
+setcookie($cookie_name, $cookie_text, time() + (310), "/"); // 86400 = 1 day
 ?>
