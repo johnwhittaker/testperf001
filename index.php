@@ -26,7 +26,11 @@ Welcome to the Planit performance challenge
 </tr>
 
 <tr>
-<td><a href="./listener001.php">Listener / Results</a></td><td><a href=""></a></td>
+<td><a href="./listener001.php">Listener / Results (small delay to load page)</a></td><td><a href=""></a></td>
+</tr>
+
+<tr>
+<td><a href="./headers001.php">Headers</a></td><td><a href=""></a></td>
 </tr>
 
 </table>

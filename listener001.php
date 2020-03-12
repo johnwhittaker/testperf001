@@ -1,17 +1,23 @@
 <?php
-
-if(isset($_POST['minimum'])&&isset($_POST['average'])&&isset($_POST['median'])&&isset($_POST['ninetyth'])&&isset($_POST['ninetyth']))
+include_once 'jwt.php';
+if(isset($_POST['minimum'])&&isset($_POST['average'])&&isset($_POST['median'])&&isset($_POST['ninetyth'])&&isset($_POST['ninetifith'])&&isset($_POST['maximum']))
 {
-	echo "Minimum: " . $_POST['minimum'];
+	if(
+		($_POST['minimum']==1)&&
+		($_POST['average']==4.5)&&
+		(($_POST['median']==3)||($_POST['median']==4))&&
+		($_POST['ninetyth']==10)&&
+		($_POST['ninetifith']==12)&&
+		($_POST['maximum']==15)
+		)
+	{
+		$x = jwtToken("anyone", "listener001.php.php", "abC123!");
+	}
 }
-#if()
-#{
-#}
 
-echo "listener - identify pause time";
+echo "listener - identify timings to the nearest half second";
 
-
-echo "You will need to run for this for the average sleep to become apparent, we suggest 1000 itterations";
+echo "You will need to run for this for the average sleep to become apparent, we suggest 1000 itterations, 10 users 100 times";
 
 $x = rand(1,10);
 

@@ -1,5 +1,5 @@
 <html>
-Keep hitting this page, the correct page will contain "Correct:"
+Keep hitting this page, the correct page will contain "Correct"
 
 You will need to validate which response has the correct page response
 
@@ -8,9 +8,9 @@ You will need to validate which response has the correct page response
 include_once 'jwt.php';
 
 
-$x = rand(1, 1000);
+$x = rand(1, 10);
 echo $x;
-if ($x==123)
+if ($x==2)
 {
 	jwtToken("anyone", "Validation001.php", "abC123!"); 
 }
