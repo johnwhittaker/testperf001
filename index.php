@@ -36,6 +36,8 @@ Welcome to the Planit performance challenge
 <tr>
 <td><a href="./regex001.php">Regular Expression</a></td><td><a href=""></a></td>
 </tr>
-
+<tr>
+<td><a href="./scenario001.php">Scenario</a></td><td><a href=""></a></td>
+</tr>
 
 </table>

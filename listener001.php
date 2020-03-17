@@ -1,7 +1,14 @@
 <?php
 include_once 'jwt.php';
-if(isset($_POST['minimum'])&&isset($_POST['average'])&&isset($_POST['median'])&&isset($_POST['ninetyth'])&&isset($_POST['ninetifith'])&&isset($_POST['maximum']))
-{
+if(
+	isset($_POST['minimum'])&&
+	isset($_POST['average'])&&
+	isset($_POST['median'])&&
+	isset($_POST['ninetyth'])&&
+	isset($_POST['ninetifith'])&&
+	isset($_POST['maximum'])
+	)
+	{
 	if(
 		($_POST['minimum']==1)&&
 		($_POST['average']==4.5)&&
