@@ -7,9 +7,9 @@ Multi User Scenario
 </br>
 </br>
 <h1>What to capture and report</h1>
-<li>Report the average reponse time
-<li>Report the 90th percentile
-<li>Report the error rate
+<li>Report the average reponse time - to the nearest second
+<li>Report the 90th percentile - to the nearest second
+<li>Report the error rate - to the nearest 5%
 </br>
 </br>
 <a href= "./scenario01/a.php">A</a>
@@ -68,8 +68,31 @@ Multi User Scenario
 <input type ="submit" value ="Submit">
 <?php
 include_once 'jwt.php';
-
-
-
-
+if(
+	isset($_POST['avga'])&&
+	isset($_POST['avgb'])&&
+	isset($_POST['avgc'])&&
+	isset($_POST['ninea'])&&
+	isset($_POST['nineb'])&&
+	isset($_POST['ninec'])&&
+	isset($_POST['errora'])&&
+	isset($_POST['errorb'])&&
+	isset($_POST['errorc'])
+	)
+	{
+	if(/*(($_POST['ninea']==3)||($_POST['median']==4))&&*/
+		($_POST['avga']==4)&&
+		($_POST['avgb']==1)&&
+		($_POST['avgc']==10)&&
+		($_POST['ninea']==8)&&
+		($_POST['nineb']==1)&&
+		($_POST['ninec']==18)&&
+		($_POST['errora']==25)&&
+		($_POST['errorb']==0)&&
+		($_POST['errorc']==5)
+		)
+	{
+		$x = jwtToken("anyone", "scenario001.php.php", "abC123!");
+	}
+}
 ?>

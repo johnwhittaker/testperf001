@@ -1,8 +1,8 @@
 <?php
 include_once 'functions.php';
 
-timing(1,2,3,4,5,6,7,8,9,10,15);
-echo "AA";
+timing(1,1,1,2,3,4,5,6,8,10,12);
+echo "A";
 
 errorrate(25);
 
