@@ -1,4 +1,33 @@
 <?php
+include_once 'jwt.php';
+include_once 'htmlstatic';
+htmlhead("Parameterisation01");
+checkname();
+?>
+ <body style="">
+
+<!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Begin page content -->
+      <div class="container">
+
+      <!-- Fixed navbar -->
+     <div class="header">
+            <ul class="nav nav-pills pull-right">
+              <li class="active"><a href="../../../../testperf001/index.php">Home</a></li>
+            </ul>
+        <h3 class="text-muted"><a href="http://challenge.planittesting.com/"><img src="./images/logo.jpg" height="60px" style="margin-top:-10px"></a> HTTP Get</h3>
+      </div>
+		<b>Guess the word from the list below and POST into the field below</b></br> Copy them to a csv </br>
+		<form name=details method="post" action="">
+		<input type="text" name="parameter">
+		<input type ="submit" value ="Submit">
+		</form>
+		
+      </div>
+
+<?php
 
 include_once 'jwt.php';
 
@@ -8,27 +37,18 @@ if(isset($_POST['parameter']))
 	if (strcmp("101186a9a44bc0354ed997696a6aefba",md5($_POST['parameter']))==0)
 	{
 		
-		jwtToken("anyone", "Parameterisation001.php", "abC123!"); 
-		
+		jwtToken($_GET['name'], pathinfo(__FILE__, PATHINFO_FILENAME), "abC123!"); 
+		exit();
 	}
 	else
 	{
-		echo "no match";
+		echo "<h1>No Match</h1>";
 	}
 }
 
-echo "</br>Guess the word ";
-
 ?>
+<hr>
 
-<form name=details method="post" action="">
-<input type="text" name="parameter">
-<input type ="submit" value ="Submit">
-</form>
-
-
-<h1>List of words</h1>
-<h2>Copy to CSV file</h2>
 <li>root
 <li>admin
 <li>test
@@ -757,4 +777,10 @@ echo "</br>Guess the word ";
 <li>sex
 <li>nimda
 <li>
-</html>
+</div>
+
+    
+   
+<?php
+htmlfoot();
+?>

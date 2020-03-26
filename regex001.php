@@ -1,9 +1,37 @@
+<?php
+include_once 'jwt.php';
+include_once 'htmlstatic';
+htmlhead("Regular Expression 01");
+checkname();
+?>
 
-In the CSV below find, extract and POST back a UUID, you have to return the solution in the same second and may require more than one attempt :)
+
+
+<body style="">
+
+<!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Begin page content -->
+      <div class="container">
+
+      <!-- Fixed navbar -->
+     <div class="header">
+            <ul class="nav nav-pills pull-right">
+              <li class="active"><a href="../../../../testperf001/index.php">Home</a></li>
+            </ul>
+        <h3 class="text-muted"><a href="http://challenge.planittesting.com/"><img src="./images/logo.jpg" height="60px" style="margin-top:-10px"></a> Pacing</h3>
+      </div>
+		<b>
+In the CSV below find, extract and POST back a UUID, you have to return the solution in the same second and may require more than one attempt</b>
 </br>
 The UUID format is 8 characters - 4 characters - 4 characters - 4 characters - 12 Characters
 </br>
-UUIDs have lower case characters a-f and numbers 0-9 broken up with hyphens, 01234567-890a-bcde-f012-34567890abcd
+UUIDs have lower case characters a-f and numbers 0-9 broken up with hyphens
+</br>E.g. 01234567-890a-bcde-f012-34567890abcd
+
+</br></br>
+</div>
 
 </br></br>
 <form name=details method="post" action="">
@@ -24,17 +52,13 @@ if(isset($_COOKIE['hash'])&& isset($_POST['parameter']))
 	$str = $_POST['parameter'].time().$salt;
 	if(strcmp(md5($str),$_COOKIE['hash'])==0)
 	{
-		jwtToken("anyone", "Regex001.php", "abC123!"); 
+		jwtToken($_GET['name'], pathinfo(__FILE__, PATHINFO_FILENAME), "abC123!");
 		echo "</br></br>";
 	}
 }
 if(isset($_POST['parameter']))
 {
 	echo "Value entered: " . $_POST['parameter']."</br></br>";
-}
-else
-{
-	echo "No value entered</br></br>";
 }
 
 $uuid = bin2hex(random_bytes(16));
@@ -84,4 +108,10 @@ function fake_UUID()
 	}
 	echo $uuid .",";
 }
+?>
+
+</div>
+  
+<?php
+htmlfoot();
 ?>

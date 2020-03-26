@@ -1,0 +1,73 @@
+<?php
+function htmlhead($pagetitle)
+{
+echo '<!DOCTYPE html>
+<!-- saved from url=(0049)http://challenge.planittesting.com/challenge1.php -->
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://challenge.planittesting.com/assets/ico/favicon.png">
+
+    <title>'.$pagetitle.'</title>
+	<link rel="shortcut icon" media="all" type="image/x-icon" href="./images/favicon.ico" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/sticky-footer.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+         .container { max-width: 730px; }
+	 .header {  border-bottom: 1px solid #e5e5e5; }
+	 .jumbotron { margin-top:20px; }
+    	 .jumbotron p { font-size: 16px; }
+    	 .row { margin-bottom:20px; }
+    	 .hidden { display:none; }
+    	 .row { max-width:600px; margin-left:5px; }
+    </style>
+</head>
+ ';
+
+}
+	 
+function htmlfoot()
+{	 
+echo '<div id="footer">
+  <div class="container">
+	<p class="text-muted credit pull-left">Planit Technical Testing Services</p>          <p class="text-muted credit pull-right">1</p>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./js/jquery.js.download"></script>
+    <script src="./js/bootstrap.min.js.download"></script>
+  
+</body></html>';
+}
+
+function checkname()
+{
+	if(isset($_GET['name']))
+	{
+		
+	}
+	else
+	{
+		echo 'No GET parameter of "name", try again';
+		exit();
+	}
+}
+?>

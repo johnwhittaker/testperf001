@@ -63,6 +63,30 @@ Multi User Scenario
 <input type="text" name="errorc">
 </td>
 </tr>
+<tr>
+<td>Time</td>
+<td>
+<input type="text" name="timea">
+</td>
+<td>
+<input type="text" name="timeb">
+</td>
+<td>
+<input type="text" name="timec">
+</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>
+<input type="text" name="codea">
+</td>
+<td>
+<input type="text" name="codeb">
+</td>
+<td>
+<input type="text" name="codec">
+</td>
+</tr>
 </table>
 
 <input type ="submit" value ="Submit">
@@ -89,7 +113,10 @@ if(
 		($_POST['ninec']==18)&&
 		($_POST['errora']==25)&&
 		($_POST['errorb']==0)&&
-		($_POST['errorc']==5)
+		($_POST['errorc']==5)&&
+		($_POST['codea'] == md5($_POST['timea']."abC123!a"))&&
+		($_POST['codeb'] == md5($_POST['timeb']."abC123!b"))&&
+		($_POST['codec'] == md5($_POST['timec']."abC123!c"))
 		)
 	{
 		$x = jwtToken("anyone", "scenario001.php.php", "abC123!");

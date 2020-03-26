@@ -1,5 +1,33 @@
 <?php
 include_once 'jwt.php';
+include_once 'htmlstatic';
+htmlhead("Results01");
+checkname();
+?>
+
+ <body style="">
+
+<!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Begin page content -->
+      <div class="container">
+
+      <!-- Fixed navbar -->
+     <div class="header">
+            <ul class="nav nav-pills pull-right">
+              <li class="active"><a href="../../../../testperf001/index.php">Home</a></li>
+            </ul>
+        <h3 class="text-muted"><a href="http://challenge.planittesting.com/"><img src="./images/logo.jpg" height="60px" style="margin-top:-10px"></a> Pacing</h3>
+      </div>
+		<b>Results - identify timings to the nearest half second</br></b>
+		You need to hit this page with GET requests then manually submit the results in the form below, ensuring the name paramter is set for submission</br>
+		You will need to hit this page repeatedly for the page timings to become clear, we suggest 1000 itterations -> 10 users 100 times
+</br></br>
+</div>
+
+
+<?php
 if(
 	isset($_POST['minimum'])&&
 	isset($_POST['average'])&&
@@ -12,19 +40,16 @@ if(
 	if(
 		($_POST['minimum']==1)&&
 		($_POST['average']==4.5)&&
-		(($_POST['median']==3)||($_POST['median']==4))&&
+		(($_POST['median']==3)||($_POST['median']==4)||)&&
 		($_POST['ninetyth']==10)&&
 		($_POST['ninetifith']==12)&&
 		($_POST['maximum']==15)
 		)
 	{
-		$x = jwtToken("anyone", "listener001.php.php", "abC123!");
+		jwtToken($_GET['name'], pathinfo(__FILE__, PATHINFO_FILENAME), "abC123!");
 	}
 }
 
-echo "listener - identify timings to the nearest half second";
-
-echo "You will need to run for this for the average sleep to become apparent, we suggest 1000 itterations, 10 users 100 times";
 
 $x = rand(1,10);
 
@@ -58,11 +83,8 @@ switch ($x) {
         break;
 	case 10:
         sleep(rand(10,15));
-        break;
+    break;
 }
-
-
-
 ?>
 
 <form name=details method="post" action="">
@@ -86,8 +108,11 @@ switch ($x) {
 <input type="text" name="maximum">
 </td></tr>
 </table>
-
-
-
 <input type ="submit" value ="Submit">
 </form>
+
+</div>
+  
+<?php
+htmlfoot();
+?>
