@@ -10,6 +10,7 @@ Multi User Scenario
 <li>Report the average reponse time - to the nearest second
 <li>Report the 90th percentile - to the nearest second
 <li>Report the error rate - to the nearest 5%
+<li>Each page when it has been done correctly it will produce a code, this is valid for 5 minutes after finishing
 </br>
 </br>
 <a href= "./scenario01/a.php">A</a>
@@ -64,18 +65,6 @@ Multi User Scenario
 </td>
 </tr>
 <tr>
-<td>Time</td>
-<td>
-<input type="text" name="timea">
-</td>
-<td>
-<input type="text" name="timeb">
-</td>
-<td>
-<input type="text" name="timec">
-</td>
-</tr>
-<tr>
 <td>Code</td>
 <td>
 <input type="text" name="codea">
@@ -92,6 +81,19 @@ Multi User Scenario
 <input type ="submit" value ="Submit">
 <?php
 include_once 'jwt.php';
+
+
+$a=array();
+$b=array();
+$c=array();
+for($x=0;$x<=301;$x++)
+{
+	array_push($a, md5((time()-$x."abC123!a")));
+	array_push($b, md5((time()-$x."abC123!b")));
+	array_push($c, md5((time()-$x."abC123!a")));
+}
+
+
 if(
 	isset($_POST['avga'])&&
 	isset($_POST['avgb'])&&
@@ -101,10 +103,13 @@ if(
 	isset($_POST['ninec'])&&
 	isset($_POST['errora'])&&
 	isset($_POST['errorb'])&&
-	isset($_POST['errorc'])
+	isset($_POST['errorc'])&&
+	isset($_POST['codea'])&&
+	isset($_POST['codeb'])&&
+	isset($_POST['codec'])
 	)
 	{
-	if(/*(($_POST['ninea']==3)||($_POST['median']==4))&&*/
+	if(
 		($_POST['avga']==4)&&
 		($_POST['avgb']==1)&&
 		($_POST['avgc']==10)&&
@@ -114,9 +119,9 @@ if(
 		($_POST['errora']==25)&&
 		($_POST['errorb']==0)&&
 		($_POST['errorc']==5)&&
-		($_POST['codea'] == md5($_POST['timea']."abC123!a"))&&
-		($_POST['codeb'] == md5($_POST['timeb']."abC123!b"))&&
-		($_POST['codec'] == md5($_POST['timec']."abC123!c"))
+		(in_array($_POST['codea'], $a))&&
+		(in_array($_POST['codeb'], $b))&&
+		(in_array($_POST['codec'], $c))
 		)
 	{
 		$x = jwtToken("anyone", "scenario001.php.php", "abC123!");

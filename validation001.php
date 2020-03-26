@@ -17,12 +17,14 @@ checkname();
             <ul class="nav nav-pills pull-right">
               <li class="active"><a href="../../../../testperf001/index.php">Home</a></li>
             </ul>
-        <h3 class="text-muted"><a href="http://challenge.planittesting.com/"><img src="./images/logo.jpg" height="60px" style="margin-top:-10px"></a> HTTP Get</h3>
+        <h3 class="text-muted"><a href="http://challenge.planittesting.com/"><img src="./images/logo.jpg" height="60px" style="margin-top:-10px"></a>Validation</h3>
       </div>
 		<b>Apart from the very first exercise all exercises require a GET with a parameter of "name" to be sent with your name.</b>	  </br></br>
-      Keep hitting this page, the correct page will contain "Correct"</br>
+      Keep hitting this page, the right page will contain "Correct"</br>
 
-		You will need to validate which response has the correct page response, 1 in 10,000 page hits is correct
+		You will need to validate which response has the correct page response</br>
+		1 in 10,000 page hits is correct
+		This is a needle in a haystack exercise and will require perseverance
       </div>
 
 
@@ -40,13 +42,10 @@ else
 {
 	echo "</br></br><h1>No Match, try again</h1>";
 }
-
-
 ?>
 </div>
 
     
-   
 <?php
 htmlfoot();
 ?>

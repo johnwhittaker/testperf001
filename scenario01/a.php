@@ -44,10 +44,9 @@ if ($result->num_rows > 0) {
 		
 		if(($row["mintime"] > 300)&&($row["cnt"] > 140)&&($row["diff"] > 6) &&($row["diff"] <=7 ) &&($row["cc"] ==3))
 		{
+			echo "</br><h1>Pass</h1></br>";
 			
-			echo "</br><h1>pass</h1></br>";
-			$s=time()."abC123!a";
-			echo "Time: ".time() ." Code:".md5($s);
+			echo "Time: ".time() ." Code:".md5((time()."abC123!a"));
 		}
     }
 } 
